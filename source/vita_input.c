@@ -214,6 +214,21 @@ int vitainput_btn_get_hold_duration(vitainput_button button)
 	return buttonStates[(int)button].holdDuration;
 }
 
+#define btn_down(b) ((controlData.buttons & b)?1:0)
+
+int vitainput_dpad_get_float(float* x, float* y)
+{
+	if (x == NULL || y == NULL)
+	{
+		return 0;
+	}
+
+	*x = (float)(btn_down(SCE_CTRL_RIGHT) - btn_down(SCE_CTRL_LEFT));
+	*y = (float)(btn_down(SCE_CTRL_DOWN) - btn_down(SCE_CTRL_UP));
+
+	return 1;
+}
+
 /* Analog stick functions */
 
 int vitainput_analog_get(vitainput_analog stick, int* x, int* y)
