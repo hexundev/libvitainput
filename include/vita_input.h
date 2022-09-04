@@ -71,6 +71,8 @@ int vitainput_btn_down(vitainput_button button);
 int vitainput_btn_released(vitainput_button button);
 int vitainput_btn_get_hold_duration(vitainput_button button);
 
+int vitainput_dpad_get_float(float* x, float* y); // values: -1 to 1, neutral is ~0
+
 int vitainput_analog_get(vitainput_analog stick, int* x, int* y); // values: 0-255, neutral is ~127
 int vitainput_analog_get_float(vitainput_analog stick, float* x, float* y); // values: -1 to 1, neutral is ~0
 
